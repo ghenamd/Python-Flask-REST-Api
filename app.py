@@ -15,6 +15,7 @@ app.secret_key = 'ghena'
 api = Api(app)
 
 
+
 jwt = JWT(app, authenticate, identity)  # auth
 
 # All endpoints
