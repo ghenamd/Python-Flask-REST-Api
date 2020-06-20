@@ -7,18 +7,12 @@ from resources.user import UserRegister
 from resources.item import ItemList, Item
 from resources.store import Store, StoreList
 
-from db import db
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'ghena'
 api = Api(app)
-
-
-@app.before_first_request
-def create_tables():
-    db.create_all()  # Creates  - 'sqlite:///data.db'
 
 
 jwt = JWT(app, authenticate, identity)  # auth
